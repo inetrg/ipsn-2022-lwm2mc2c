@@ -1,0 +1,4 @@
+[submodule "leshan"]
+	path = leshan
+	url = https://github.com/inetrg/leshan.git
+	branch = dev/third_party_auth
