@@ -2,3 +2,7 @@
 	path = leshan
 	url = https://github.com/inetrg/leshan.git
 	branch = dev/third_party_auth
+[submodule "RIOT"]
+	path = RIOT
+	url = https://github.com/inetrg/RIOT.git
+	branch = dev/wakaama_client_to_client_oscore
