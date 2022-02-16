@@ -1,0 +1,94 @@
+# Copyright (c) 2021 HAW Hamburg
+#
+# This file is subject to the terms and conditions of the GNU Lesser
+# General Public License v2.1. See the file LICENSE in the top level
+# directory for more details.
+#
+
+menu "Application configuration"
+
+rsource "../Kconfig.common"
+
+choice CLIENT_TYPE
+    bool "Select the client type"
+
+config CLIENT_TYPE_REQUESTER
+    bool "Requester"
+
+config CLIENT_TYPE_HOST
+    bool "Host"
+
+config CLIENT_TYPE_FORWARDER
+    bool "Forwarder"
+
+endchoice # CLIENT_TYPE
+
+
+menu "Resource configuration"
+
+menuconfig RESOURCE_AUTO_UPDATE
+    bool "Trigger resource update periodically"
+    default y
+    depends on CLIENT_TYPE_HOST
+
+config RESOURCE_UPDATE_PERIOD_MS
+    int "Update period of the resource"
+    default 1000
+    depends on RESOURCE_AUTO_UPDATE
+
+comment "The default configuration (/3311/0/5850) is the 'Colour' string of a light control object"
+
+config RESOURCE_OBJ_ID
+    int "Resource object ID"
+    default 3311
+
+config RESOURCE_INST_ID
+    int "Resource instance ID"
+    default 0
+
+config RESOURCE_ID
+    int "Resource ID"
+    default 5706
+
+endmenu # Resource configuration
+
+menu "Server configuration"
+
+config LWM2M_SERVER_URI
+    string "LwM2M Server URI to register/bootstrap with"
+    default "coap://[fd00:dead:beef::1]"
+    help
+        The host part of the URI MUST be a valid IPv6 address.
+
+config LWM2M_SERVER_SHORT_ID
+    int "Server Short ID"
+    default 1
+    range 1 65534
+
+config PSK_ID
+    string "PSK Identity"
+    default "Client_Identity"
+
+config PSK_KEY
+    string "PSK Key"
+    default "ThisIsRIOT!"
+
+config LWM2M_SERVER_IS_BOOTSTRAP
+    bool "The server is a Bootstrap-Server"
+    depends on LWM2M_BOOTSTRAP
+
+endmenu # Server configuration
+
+menu "Light object configuration"
+
+config LED_COLOR
+    string "Color"
+    default "00000"
+
+config LED_APP_TYPE
+    string "Application type"
+    default "LED 0"
+
+endmenu # Light object configuration
+
+endmenu # Application configuration

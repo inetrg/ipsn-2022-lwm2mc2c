@@ -1,0 +1,8 @@
+# Built binaries
+*bin
+# Object files
+*.o
+# Target files
+*.elf
+# Generated headers
+*.inc

@@ -1,0 +1,32 @@
+# Copyright (c) 2021 HAW Hamburg
+#
+# This file is subject to the terms and conditions of the GNU Lesser
+# General Public License v2.1. See the file LICENSE in the top level
+# directory for more details.
+#
+
+config IPV6_PREFIX
+    string "The 6lo prefix"
+    default "2001:db8::"
+
+config IPV6_PREFIX_LEN
+    int "The 6lo prefix length"
+    default 64
+
+config USE_CUSTOM_DATA_RATE
+    bool "Use a custom data rate"
+
+config DATA_RATE
+    int
+    prompt "Custom data rate value" if USE_CUSTOM_DATA_RATE
+    range 0 3
+    default 0
+    help
+        Custom data rate value for the radio. Possible values are:
+        - 0:   250 kbit/s (IEEE mode)
+        - 1:   500 kbit/s
+        - 2:  1000 kbit/s (compatible with AT86RF215)
+        - 3:  2000 kbit/s
+
+config DISABLE_LOGGING
+    bool "Disable all logging"
