@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: "Secure and Authorized Client-to-Client Communication for LwM2M"
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Leandro
+    family-names: Lanzieri
+    email: leandro.lanzieri@haw-hamburg.de
+    affiliation: HAW Hamburg
+  - given-names: Peter
+    family-names: Kietzmann
+    email: peter.kietzmann@haw-hamburg.de
+    affiliation: HAW Hamburg
+  - given-names: Thomas C.
+    family-names: Schmidt
+    email: t.schmidt@haw-hamburg.de
+    affiliation: HAW Hamburg
+  - family-names: Wählisch
+    given-names: Matthias
+    email: m.waehlisch@fu-berlin.de
+    affiliation: Freie Universität Berlin
